@@ -16,7 +16,8 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+    console.log('post btn eh click kora hoeyce',id)
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -51,7 +52,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  console.log(post.comments[0])
+  
     const image = post.image;
     const userImage = post.userImage;
     const div = document.createElement( "article" );
@@ -98,7 +99,7 @@ const createPost = (post) => {
                   <div class="post__indicators"></div>
 
                   <button class="post__button post__button--align-right" onclick="reportPost(${
-                      post.id
+                      posts.id
                   })">
                     <i class="fa-solid fa-ban"></i>
                   </button>
