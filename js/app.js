@@ -8,7 +8,6 @@ const getLikedPosts = () => {
 };
 
 const getReportedPosts = () => {
-  console.log('repoted post btn was clicked')
   return posts.filter((post) => reportedPostsId.includes(post.id));
 };
 
@@ -17,7 +16,6 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  console.log('post btn eh click kora hoeyce', id)
   likedPostsId.push(id);
   showPosts(posts);
 };
@@ -147,17 +145,22 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+  const likePostsContainer =  document.getElementById("liked");
+  likePostsContainer.innerHTML = "";
   likedPosts.forEach((post) => {
     const div = createPost(post);
-    document.getElementById("liked").appendChild(div);
+    likePostsContainer.appendChild(div);
   });
+  
 };
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
+  const reportedPostsContainer = document.getElementById("reported");
+  reportedPostsContainer.innerHTML = '';
   reportedPosts.forEach((post) => {
     const div = createPost(post);
-    document.getElementById("reported").appendChild(div);
+    reportedPostsContainer.appendChild(div);
   });
 };
 
